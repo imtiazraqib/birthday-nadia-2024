@@ -20,15 +20,31 @@ document.addEventListener("keyup", function (evt) {
   keys[evt.code] = false;
 });
 
-// Add event listeners for the mobile buttons
+let isDucking = false; // Track ducking state
+
+// Duck button press
+document.getElementById("duckBtn").addEventListener("mousedown", function () {
+  isDucking = true; // Start ducking when button is pressed
+});
+
+// Duck button release
+document.getElementById("duckBtn").addEventListener("mouseup", function () {
+  isDucking = false; // Stop ducking when button is released
+});
+
+// Touch events for mobile support
+document.getElementById("duckBtn").addEventListener("touchstart", function () {
+  isDucking = true; // Start ducking on touch
+});
+
+document.getElementById("duckBtn").addEventListener("touchend", function () {
+  isDucking = false; // Stop ducking on touch end
+});
+
+// Add the jump button listener as before
 document.getElementById("jumpBtn").addEventListener("click", function () {
   keys["Space"] = true; // Simulate Space key press for jumping
   setTimeout(() => (keys["Space"] = false), 100); // Reset after a brief moment to allow another jump
-});
-
-document.getElementById("duckBtn").addEventListener("click", function () {
-  keys["ShiftLeft"] = true; // Simulate Shift key press for ducking
-  setTimeout(() => (keys["ShiftLeft"] = false), 100); // Reset after a brief moment to allow another duck
 });
 
 class Player {
@@ -57,11 +73,12 @@ class Player {
       this.jumpTimer = 0;
     }
 
-    if (keys["ShiftLeft"] || keys["KeyS"]) {
+    if (keys["ShiftLeft"] || keys["KeyS"] || isDucking) {
       this.h = this.originalHeight / 2;
     } else {
       this.h = this.originalHeight;
     }
+
     this.y += this.dy;
 
     // Gravity
