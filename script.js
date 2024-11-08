@@ -188,7 +188,7 @@ class Text {
 }
 
 function SpawnObstacle() {
-  let size = RandomIntInRange(20, 70);
+  let size = RandomIntInRange(40, 70);
   let type = RandomIntInRange(0, 1);
 
   // Use an obstacle image
