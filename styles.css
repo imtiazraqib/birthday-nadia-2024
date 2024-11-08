@@ -1,0 +1,175 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Color Palette */
+:root {
+  --lapis-lazuli: #22577a;
+  --verdigris: #38a3a5;
+  --emerald: #57cc99;
+  --light-green: #80ed99;
+  --tea-green: #c7f9cc;
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif; /* Modern font */
+  background: linear-gradient(to right, var(--lapis-lazuli), var(--light-green));
+  color: var(--tea-green);
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container for the birthday card */
+.birthday-card {
+  background: var(--tea-green);
+  border: 5px solid var(--lapis-lazuli);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 1100px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adding a festive header with sparkle effects */
+.birthday-card h1 {
+  font-size: 2.5rem;
+  color: var(--light-green);
+  text-shadow: 3px 3px var(--lapis-lazuli);
+  margin-bottom: 10px;
+  animation: shimmer 2s infinite;
+}
+
+.birthday-card h2 {
+  font-size: 1.8rem;
+  color: var(--emerald);
+  text-shadow: 2px 2px var(--lapis-lazuli);
+  margin-bottom: 20px;
+}
+
+.birthday-card p {
+  font-size: 1.2rem;
+  color: var(--verdigris);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Confetti background animation */
+.birthday-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/3567/3567070.png");
+  background-repeat: repeat;
+  background-size: 50px;
+  opacity: 0.2;
+  z-index: -1;
+  animation: confetti-fall 5s infinite linear;
+}
+
+/* Buttons */
+.birthday-card button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  background: var(--lapis-lazuli);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.birthday-card button:hover {
+  transform: scale(1.1);
+  background: var(--verdigris);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    text-shadow: 3px 3px var(--lapis-lazuli), -3px -3px var(--tea-green);
+  }
+  50% {
+    text-shadow: 5px 5px var(--light-green), -5px -5px var(--lapis-lazuli);
+  }
+  100% {
+    text-shadow: 3px 3px var(--lapis-lazuli), -3px -3px var(--tea-green);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100%) rotate(360deg);
+  }
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  background: var(--emerald);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: var(--light-green);
+}
+
+#start {
+  background: var(--verdigris);
+}
+
+#start:hover {
+  background: var(--emerald);
+}
+
+canvas {
+  margin: 20px auto;
+  border: 5px solid var(--lapis-lazuli);
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 100%; /* Prevent overflow */
+  height: auto;
+  display: block;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.footer {
+  margin-top: 20px;
+  margin: auto;
+  border-top: 1px solid white;
+  width: 80%;
+  padding: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+}
