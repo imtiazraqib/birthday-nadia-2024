@@ -23,13 +23,23 @@ document.addEventListener("keyup", function (evt) {
 let touchStartY = 0;
 let touchEndY = 0;
 
-document.addEventListener("touchstart", function (evt) {
-  touchStartY = evt.touches[0].clientY;
-});
+document.addEventListener(
+  "touchstart",
+  function (evt) {
+    evt.preventDefault();
+    touchStartY = evt.touches[0].clientY;
+  },
+  { passive: false }
+);
 
-document.addEventListener("touchmove", function (evt) {
-  touchEndY = evt.touches[0].clientY;
-});
+document.addEventListener(
+  "touchmove",
+  function (evt) {
+    evt.preventDefault();
+    touchEndY = evt.touches[0].clientY;
+  },
+  { passive: false }
+);
 
 document.addEventListener("touchend", function () {
   const swipeDistance = touchStartY - touchEndY;
