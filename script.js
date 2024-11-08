@@ -13,6 +13,15 @@ let score,
 
 let isRunning = true;
 
+// Prevent right-click context menu from appearing on buttons
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+  button.addEventListener("contextmenu", (event) => {
+    event.preventDefault(); // Prevent the right-click menu
+  });
+});
+
 document.addEventListener("keydown", function (evt) {
   keys[evt.code] = true;
 });

@@ -15,6 +15,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none; /* Prevent text selection */
 }
 
 body {
@@ -24,6 +25,17 @@ body {
   text-align: center;
   padding: 20px;
   overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+button {
+  -webkit-user-select: none; /* Prevent text selection on buttons */
+  -moz-user-select: none; /* Prevent text selection on buttons */
+  -ms-user-select: none; /* Prevent text selection on buttons */
+  user-select: none; /* Prevent text selection on buttons */
+}
+
+button:active {
+  outline: none; /* Remove the outline when the button is active */
 }
 
 /* Container for the birthday card */
