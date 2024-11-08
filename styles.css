@@ -173,3 +173,33 @@ canvas {
   text-decoration: none;
   color: white;
 }
+
+/* Mobile control buttons */
+#mobile-controls {
+  gap: 10px;
+  z-index: 10;
+}
+
+#mobile-controls button {
+  background-color: #57cc99;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#mobile-controls button:hover {
+  background-color: #38a3a5;
+}
+
+/* Show controls only on small screens */
+@media (max-width: 768px) {
+  #mobile-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

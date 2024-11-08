@@ -20,45 +20,15 @@ document.addEventListener("keyup", function (evt) {
   keys[evt.code] = false;
 });
 
-let touchStartY = 0;
-let touchEndY = 0;
+// Add event listeners for the mobile buttons
+document.getElementById("jumpBtn").addEventListener("click", function () {
+  keys["Space"] = true; // Simulate Space key press for jumping
+  setTimeout(() => (keys["Space"] = false), 100); // Reset after a brief moment to allow another jump
+});
 
-document.addEventListener(
-  "touchstart",
-  function (evt) {
-    evt.preventDefault();
-    touchStartY = evt.touches[0].clientY;
-  },
-  { passive: false }
-);
-
-document.addEventListener(
-  "touchmove",
-  function (evt) {
-    evt.preventDefault();
-    touchEndY = evt.touches[0].clientY;
-  },
-  { passive: false }
-);
-
-document.addEventListener("touchend", function () {
-  const swipeDistance = touchStartY - touchEndY;
-
-  // Determine swipe direction
-  if (swipeDistance > 50) {
-    // Swipe up
-    player.Jump();
-  } else if (swipeDistance < -50) {
-    // Swipe down
-    player.h = player.originalHeight / 2; // Crouch
-    setTimeout(() => {
-      player.h = player.originalHeight; // Return to original height after crouch
-    }, 300); // Adjust duration for crouch
-  }
-
-  // Reset swipe values
-  touchStartY = 0;
-  touchEndY = 0;
+document.getElementById("duckBtn").addEventListener("click", function () {
+  keys["ShiftLeft"] = true; // Simulate Shift key press for ducking
+  setTimeout(() => (keys["ShiftLeft"] = false), 100); // Reset after a brief moment to allow another duck
 });
 
 class Player {
